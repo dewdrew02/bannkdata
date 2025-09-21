@@ -1,7 +1,15 @@
 import{ bank }from"./Bank.ts";
 
-const myBank = new bank()
-myBank.addCustomer(prompt("กรุณากรอก ID ของคุณ:")||"",prompt("กรุณากรอกชื่อของคุณ:")||"")
+const myBank = new bank();
+console.log("--------------------------------------------------");
+console.log("ยินดีต้อนรับสู่ระบบธนาคาร");
+console.log("--------------------------------------------------");
+const numCustomers = Number(prompt("กรุณากรอกจำนวนลูกค้าที่ต้องการเพิ่ม:")||"0");
+for(let i=0;i<numCustomers;i++){
+    const id = prompt(`กรุณากรอก ID ของลูกค้าคนที่ ${i+1}:`)||""
+    const name = prompt(`กรุณากรอกชื่อของลูกค้าคนที่ ${i+1}:`)||""
+    myBank.addCustomer(id, name)
+}
 const action = prompt("คุณต้องการทำอะไร? (1: ฝากเงิน, 2: ถอนเงิน, 3: เช็คข้อมูลลูกค้า)")||""
 if(action==="1"){
   const id = prompt("กรุณากรอก ID ของคุณ:")||""
@@ -21,5 +29,5 @@ if(action==="1"){
 
 
 console.log("--------------------------------------------------");
-console.log("ยินดีต้อนรับเข้าสู่ระบบธนาคารของเรา");
+console.log("สิ้นสุดการบริการ");
 console.log("--------------------------------------------------");
